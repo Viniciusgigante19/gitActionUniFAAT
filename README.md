@@ -13,6 +13,47 @@ O workflow de CI está definido no arquivo `.github/workflows/ci.yml`. Ele é ac
 
 Se qualquer uma dessas etapas falhar, o workflow indicará um erro, notificando que as alterações recentes podem ter quebrado o projeto.
 
+## Erro Proposital para Demonstração
+
+Este repositório contém um erro proposital para demonstrar como o pipeline de CI detecta problemas.
+
+**O Erro:**
+
+No arquivo `app/calc.py`, a função `soma` está implementada para subtrair os números em vez de somá-los:
+
+```python
+def soma(a, b):
+    return a - b  # ERRO proposital
+```
+
+**O Teste que Falha:**
+
+O teste em `tests/test_calc.py` para esta função espera o resultado correto da soma:
+
+```python
+def test_soma():
+    assert soma(2, 3) == 5
+```
+
+Quando o teste for executado no pipeline de CI, ele vai calcular `soma(2, 3)`, que a função com erro retornará como `-1` (`2 - 3`). O teste então vai verificar se `-1 == 5`, o que é falso, causando a falha do teste e, consequentemente, do workflow de CI.
+
+**Como Corrigir em Aula:**
+
+Para fazer o pipeline de CI passar (ficar "verde"), a correção é simples:
+
+1.  Abra o arquivo `app/calc.py`.
+2.  Altere a função `soma` para que ela retorne a soma real dos dois números.
+
+A função corrigida ficará assim:
+
+```python
+def soma(a, b):
+    return a + b
+```
+
+Após a correção e o envio (commit/push) do código, o pipeline de CI será executado novamente. Desta vez, o `test_soma` passará, demonstrando um ciclo de CI/CD bem-sucedido.
+
+
 ## Exercício
 
 **Objetivo:** Adicionar uma nova funcionalidade à calculadora, com seu respectivo teste, e demonstrar o funcionamento do pipeline de CI.
