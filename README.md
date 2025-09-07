@@ -76,7 +76,7 @@ Após a correção e o envio (commit/push) do código, o pipeline de CI será ex
 
 ## Como Entregar o Exercício
 
-A entrega deve ser feita através de um **Pull Request (PR)** a partir de um `fork` deste repositório.
+A entrega e a comprovação da atividade serão feitas exclusivamente através de um **Pull Request (PR)** a partir de um `fork` deste repositório.
 
 **Passo a Passo:**
 
@@ -112,14 +112,15 @@ A entrega deve ser feita através de um **Pull Request (PR)** a partir de um `fo
         git push origin minha-nova-feature
         ```
 
-6.  **Crie o Pull Request (PR):**
+6.  **Crie o Pull Request (PR) para Entrega:**
     *   Abra a página do **seu fork** no GitHub.
     *   O GitHub geralmente mostrará um aviso para criar um Pull Request a partir da sua branch recém-enviada. Clique em **Compare & pull request**.
     *   Se o aviso não aparecer, vá para a aba **Pull Requests** e clique em **New pull request**.
     *   Certifique-se de que o `base repository` seja o repositório **original** e o `head repository` seja o **seu fork**.
     *   O `compare` deve ser a sua branch (`minha-nova-feature`) e o `base` deve ser a branch `main` do repositório original.
-    *   Adicione um título e uma breve descrição para o seu PR.
+    *   **No título do Pull Request, coloque seu RA e Nome Completo.** Exemplo: `[123456] Nome Completo do Aluno - Atividade de CI`.
+    *   Adicione uma breve descrição para o seu PR, se desejar.
     *   Clique em **Create pull request**.
 
-7.  **Entregue:**
-    *   O link do seu Pull Request é o que você deve entregar como comprovação da atividade. O PR mostrará suas alterações e o status do workflow de CI, que deve passar com sucesso.
+7.  **Comprovação:**
+    *   O próprio Pull Request criado será a sua entrega. Ele conterá o link para o seu código, o histórico de alterações e, o mais importante, o status do workflow de CI (que deverá estar passando com sucesso), comprovando que sua alteração foi testada e integrada corretamente.
