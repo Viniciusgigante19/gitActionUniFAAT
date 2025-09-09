@@ -4,7 +4,7 @@ def test_soma():
     assert soma(2, 3) == 5
 
 def test_multiplica():
-    assert multiplica(2, 3) == 6
+    assert multiplica(2,3) == 600
 
 def test_divide():
     assert divide(10,5) == 2
