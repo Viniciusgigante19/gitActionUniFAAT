@@ -1,6 +1,19 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - feature/aula04
+  pull_request:
+    branches:
+      - main
+      - feature/aula04
+  merge:
+    branches:
+      - main
+      - feature/aula04
+
 
 jobs:
   test:
@@ -20,6 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Docker (Ensure Docker is running)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
       - name: Build Docker image
         run: docker build -t python-app .
       - name: Run integration tests in Docker
